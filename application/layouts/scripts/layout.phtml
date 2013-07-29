@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Avante Consultoria</title>
+
+<link href="<?php echo $this->baseUrl(); ?>/public/css/css.css"
+	rel="stylesheet" type="text/css" media="all" />
+
+<style type="text/css">
+.clearfix {
+	height: 1%;
+}
+
+img {
+	border: none;
+}
+</style>
+</head>
+
+<body>
+	<div id="mainwrap">
+
+		<div id="footer_terms">
+			<h1>
+				<strong>Avante Consultoria</strong> na <a
+					href="http://www.google.com/"><strong>Midia</strong> </a>
+			</h1>
+		</div>
+
+		<div id="header-wrap" class="wrap">
+			<div id="header" class="pagesize">
+				<h1 id="logo">
+					<a href="index.php">Avante Consultoria</a>
+				</h1>
+				<div id="topnav">
+
+					<form name="formulario" style="text-align: right" method="get"
+						action="6_cadastro_usuario.html">
+						Login:
+						<input type="text" name="login" id="login" value="" />
+						</br>* informe um login possuindo de 5 a 15 caracteres
+						<br />
+						<br /> Senha:
+						<input type="password" name="senha" id="senha" value=""
+							placeholder="********" />
+						</br> * A senha deve conter, no minimo, 8 caracteres
+						<br />
+						<br />
+						<div style="text-align: right">
+							<input type="button" value="Login" onclick="B_login();" />
+						</div>
+					</form>
+					<script type="text/javascript">
+		// funÃ§ao que verifica os erros de validaï¿½ï¿½o do formulï¿½rio
+		function verificaErro(){
+			var erro = false;
+			// verificar limites de caracteres do login
+			if(document.getElementById('login').value.length 
+                            < 5 || document.getElementById('login').value.length > 15){
+				alert('O login foi informado incorretamente!');
+				document.getElementById('login').focus();
+				erro = true;
+			}
+			
+			if(!erro){
+				// verificar limite de caracteres da senha
+				 if(document.getElementById('senha').value.length < 8){
+					 alert('A senha foi informado incorretamente!');
+					 document.getElementById('senha').focus();
+					 erro = true;
+				 }
+			}
+			
+			if(!erro){
+				// verificar se a senha e a confirmaÃ§Ã£o da senha sao iguais
+				 if(document.getElementById('senha').value != document.getElementById('confirma').value){
+					 alert('A confirmação da senha difere da senha informada!');
+					 document.getElementById('senha').focus();
+					 erro = true;
+				 }
+			}
+			// retorna verdadeiro caso tenha ocorrido algum erro de validaÃ§Ã£o dos compos
+			return erro;
+		}
+		
+		function B_login(){
+			// verifica se houveram erros de validaÃ§Ã£o
+			if(!verificaErro()){
+				alert('Os dados serão enviados');
+				// envia os dados do formulario
+				document.formulario.submit();
+			}
+		}
+	</script>
+				</div>
+			</div>
+		</div>
+		<div id="mainnav-wrap" class="wrap">
+			<div id="mainnav" class="pagesize clearfix">
+				<div class="vernav">
+					<ul class="clearfix">
+						<li><a href="index" id="active"><span>Inicio</span> </a></li>
+						<li><a href="servicos"><span>Serviços</span> </a></li>
+						<li><a href="solucoes"><span>Solucoes</span> </a></li>
+						<li><a href="clientes"><span>Clientes </span> </a></li>
+						<li><a href="contato"><span>Contato</span> </a></li>
+						<li><a href="ajuda"><span>Ajuda</span> </a></li>
+						<li><a href="usuario"><span>Sua Conta</span> </a></li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="container-wrap" class="wrap">
+			<div id="container" class="pagesize clearfix">
+				<div id="leftcol">
+					<div class="inner">
+						<p>Sobre a Empresa - A Avante Consultoria tem como foco o
+							recrutamento e alocação de profissionais no desenvolvimento de
+							projetos específicos na área de Tecnologia da Informação.</p>
+					</div>
+				</div>
+				<div id="maincol">
+					<div id="banner" class="clearfix">
+						<div id="banner-content">
+							<h1>Consultoria de Negocios</h1>
+							<p class="f14">Avante Consultoria</p>
+
+							<a href="index.html">Faça um Tour</a>
+						</div>
+					</div>
+					<div id="content-wrap">
+						<?php echo $this->layout()->content; ?>
+					</div>
+					<div id="footer">Avante Consultoria em TI &copy; - Todos os
+						direitos reservados</div>
+				</div>
+				<div id="rightcol">
+					<div class="inner">
+						<p>Noticias</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+</body>
+</html>

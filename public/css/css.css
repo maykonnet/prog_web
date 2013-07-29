@@ -1,0 +1,281 @@
+/*========================================= 
+ layouts
+=========================================*/
+
+div.wrap {
+	text-align: center;
+}
+
+div.pagesize {
+	width: 919px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+div.module-box {
+	width: 100%;
+}
+
+div.module-box div.inner {
+	padding: 10px 24px;
+}
+
+div.three-boxes {
+	float: left;
+	width: 33.3%;
+}
+
+div.vernav {
+	margin: 0;
+}
+
+div.vernav ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.vernav li {
+	list-style-type: none;
+	margin: 0 10px 0 0;
+	padding: 0;
+}
+
+div.vernav ul li, div.vernav ul li a, div.vernav ul li, div.vernav ul li a span {
+	float: left;
+	display: block;
+}
+
+
+/*========================================= 
+Layout
+=========================================*/
+
+#header-wrap {
+	background: url(../images/header_bg.gif) left top repeat-x;
+	height: 86px;
+}
+
+h1#logo {
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+h1#logo a {
+	display: block;
+	float: left;
+	width: 252px;
+	height: 78px;
+	text-indent: -3000px;
+	margin-left: 30px;
+	background: url(../images/logo.gif) left top no-repeat;
+}
+
+#topnav {
+	margin-top: 10px;
+	float: right;
+}
+
+#topnav a {
+	margin-left: 8px;
+}
+
+#mainnav-wrap {
+	height: 60px;
+	background: url(../images/mainnav_bg.gif) left top repeat-x;
+}
+
+#mainnav {
+	text-align: center;
+}
+
+#mainnav ul {
+	margin: 0 auto;
+	text-align: left;
+}
+
+#mainnav ul li {
+	margin: 0;
+}
+
+#mainnav ul li a span {
+	height: 40px;
+	line-height: 46px;
+	background: url(../images/mainnav_sep.gif) right top no-repeat;
+	padding: 0 20px;
+	font-weight: bold;
+}
+
+#mainnav ul li a#active span {
+	color: #cc9900;
+	font-weight: bold;
+}
+
+#container-wrap {
+	background: #a8a975 url(../images/bg_rp.gif) left top repeat-x;
+	height: 300px;
+}
+
+#leftcol {
+	background: #a8a975 url(../images/leftcol_bg.gif) right top no-repeat;
+	width: 185px;
+	height: 40px;
+	float: left;
+}
+
+#rightcol {
+	background: #a8a975 url(../images/rightcol_bg.gif) left top no-repeat;
+	width: 185px;
+	height: 300px;
+	float: right;
+}
+
+#maincol {
+	width: 549px;
+	float: left;
+	height: 300px;
+}
+
+#banner {
+	height: 214px;
+	background: url(../images/main_header.jpg) left top no-repeat;
+}
+
+#content-wrap {
+	background: url(../images/main_footer.jpg) left top repeat-y;
+}
+
+#content {
+	background: url(../images/main_footer1.jpg) left bottom no-repeat;
+	padding: 6px 15px 35px;
+}
+
+#banner-content {
+	margin: 90px 25px 0 0;
+	width: 325px;
+	text-align: right;
+	float: right;
+}
+
+#banner {
+	color: #fff;
+}
+
+#banner h1 {
+	font-size: 20px;
+	color: #fff;
+	margin-bottom: 8px;
+}
+
+#banner p {
+	margin-top: -8px;
+}
+
+.yellow {
+	color: #999966;
+	font-weight: bold;
+}
+
+.f14 {
+	font-size: 14px;
+}
+
+img.left {
+	float: left;
+	margin: 5px 10px 0 0;
+}
+
+#rodape {
+	padding: 3px 0;
+	color: #000;
+	font-size: 11px;
+	text-align: center;
+}
+
+div.inner {
+	padding: 20px 12px;
+	color: #fff;
+}
+
+/* Tipografia*/
+a { text-decoration: none; color: #666;}
+
+a:hover {
+	cursor: pointer; 
+	color: #000;
+	text-decoration: underline;
+}
+
+body {
+	font-family: Arial, "Trebuchet MS", Helvetica, sans-serif;
+	font-size: 62.5%;
+	color: #666666;
+	background: #a8a975;
+		min-height: 80%;
+	position: relative;
+
+}
+
+#mainwrap {
+	font-size: 1.2em;
+	line-height: 100%;
+	
+}
+
+h1, h2, h3, h4, h5 {
+	font-weight: normal;
+	color: #999;
+}
+
+h1 { font-size: 3em; }
+
+h1, h2, h3, h4, h5, p, ul { margin: 10px 0; }
+
+h2 { font-size: 2.4em; }
+
+h3 { font-size: 1.8em; }
+
+h4 { font-size: 1.4em; text-transform: uppercase; }
+
+ul li { margin-left: 15px; margin-bottom: 5px; }
+
+.button {
+	padding: 2px 8px;
+	border: 1px solid #47210C;
+	background: url(../images/but-bg.gif) repeat-x center #4F2F1D;
+	font-variant: small-caps;
+	color: #F8B150;
+}
+
+.clr { clear: both; }
+
+.inputbox {
+	border: 1px solid #47210C;
+	padding: 3px 2px;
+	background: #8A5C2B;
+}
+
+#footer_terms {
+width: 90%; bottom:0px; left: 0px; position: absolute; height: 30px;
+}
+
+#footer_terms h1 {
+	padding: 100px 0px 0px 0px; color: #c6c6c6;
+	text-align:right;
+	border:0px;
+	font-variant:normal;font-size: 1em;font-weight: normal;
+	text-decoration:none;background: none;
+	
+}
+
+#footer_terms a  { text-decoration: underline;}
+
+#footer_terms strong,#footer_terms a {
+	color: #c6c6c6;
+	font-weight: normal;
+	background: none;
+}
+
+
+
