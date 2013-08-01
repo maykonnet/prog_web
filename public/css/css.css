@@ -260,7 +260,7 @@ ul li { margin-left: 15px; margin-bottom: 5px; }
 width: 90%; bottom:0px; left: 0px; position: absolute; height: 30px;
 }
 
-#footer_terms h1 {
+#footer_terms h1 { 
 	padding: 100px 0px 0px 0px; color: #c6c6c6;
 	text-align:right;
 	border:0px;
