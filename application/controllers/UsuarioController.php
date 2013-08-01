@@ -10,11 +10,15 @@ class UsuarioController extends Zend_Controller_Action
 
     public function indexAction()
     {
+    	/*
     	$SessionNamespace = new Zend_Session_Namespace('Usuario');
-    	$SessionNamespace->usuario_id = '2';
+    	$SessionNamespace->usuario_id = '5';
     	if(!empty($SessionNamespace->usuario_id)){
     		$this->_helper->redirector('usuario','editar');
-    	}
+    	}*/
+    	
+    	$model_usuario = new Application_Model_Usuario();
+    	$this->view->usuarios = $model_usuario->getUsuarios();
     }
 
     public function loginAction()

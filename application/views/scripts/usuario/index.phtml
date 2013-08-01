@@ -1,70 +1,19 @@
 <div id="content" class="clearfix">
-	<form name="formulario" method="post" action="usuario/cadastro" id="formulario">
-		Nome: <input type="text" name="nome" id="Nnome" value="" /></br> </br>
-		Sexo: 
-		<label>
-			<input type="radio" name="sexo" id="sexoM" value="M" />
-			Masculino
-		</label>
-		<label> 
-			<input type="radio" name="sexo" id="sexoF" value="F" />
-			Feminino
-		</label></br> <br /> 
-		Login: <input type="text" name="login_C" id="login_C" value="" /> * informe um login possuindo de 5 a 15 caracteres<br /> <br />
-	    Senha: <input type="password" name="senha_C" id="senha_C" value="" placeholder="**********" /> * a senha deve conter, no minimo, 8 caracteres <br /> <br />
-	    Confirme a senha: <input type="password" name="confirma_C" id="confirma_C" value="" placeholder="**********" /><br /><br /> 
-	    <input type="submit" value="Cadastrar" onclick="verificaErro_cadastro();" />
-	</form>
-	<script type="text/javascript">
-		
-	// função que verifica os erros de validação do formulário
-	function verificaErro_cadastro(){
-	
-        var erro_cadastro = false;
-	// verificar limites de caracteres do login
-	if(document.getElementById('login_C').value.length < 5 || 
-           document.getElementById('login_C').value.length > 15){
-           alert('O login do cadastro foi informado incorretamente!');
-           document.getElementById('login_C').focus();
-           erro_cadastro = true;
-			}
-    function verifica_cadastro(){
-        if(document.getElementById('sexoM').checked || 
-            document.getElementById('sexoF').checked){
-            alert('Seus dados do cadastro serão enviados.');
-            document.formulario.submit();
-	}
-        
-        else{
-        }
-			
-alert('Você precisa marcar uma das opções para se \n\
-cadastrar (Masculino ou Feminino).');
-			
-                    }
-		}
-	if(!erro_cadastro){
-	// verificar limite de caracteres da senha
-	if(document.getElementById('senha_C').value.length < 8){
-	alert('A senha do cadastro foi informado incorretamente!');
-	document.getElementById('senha_C').focus();
-	erro_cadastro = true;
-				 }
-			}
-			
-        if(!erro_cadastro){
-        // verificar se a senha e a confirmação da senha sao iguais
-        if(document.getElementById('senha_C').value 
-        != document.getElementById('confirma_C').value){
-	alert('A confirmação da senha do cadastro difere da senha informada!');
-	document.getElementById('senha_C').focus();
-	erro_cadastro = true;
-				 }
-			}
-// retorna verdadeiro caso tenha ocorrido algum erro de validação dos compos
-return erro_cadastro;
-		}
-		
-		
-	</script>
+	<table>
+
+		<?php 
+		foreach($this->usuarios as $usuario){
+	?>
+		<tr>
+			<td><?php echo $usuario['usuario_id']?></td>
+			<td><?php echo $usuario['usuario_nome']?></td>
+			<td><?php echo $usuario['usuario_sexo']?></td>
+			<td><?php echo $usuario['usuario_login']?></td>
+			<td><a>Editar</a></td>
+			<td><a>Remover</a></td>
+		</tr>
+
+		<?php }	?>
+
+	</table>
 </div>

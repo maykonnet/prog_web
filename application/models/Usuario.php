@@ -40,7 +40,26 @@ class Application_Model_Usuario
 		
 		return $dados;			
 	}
-
+	
+	public function getUsuarios()
+	{
+		$_db_usuario = new Application_Model_DbTable_Usuario();
+		
+		$dados_banco = $_db_usuario->fetchAll();
+		
+		$dados_usuarios = array();
+		foreach($dados_banco as $usuario){
+			$dados_usuarios[] = array('usuario_id' => $usuario['usuario_id'],
+					'usuario_nome' => $usuario['usuario_nome'],
+					'usuario_sexo' => $usuario['usuario_sexo'],
+					'usuario_login' => $usuario['usuario_login'],
+					'usuario_senha' => $usuario['usuario_senha']);
+		}
+		
+		return $dados_usuarios;
+		
+	}
+	
 	public function login($dados_login)
 	{
 		$_db_usuario = new Application_Model_DbTable_Usuario();
