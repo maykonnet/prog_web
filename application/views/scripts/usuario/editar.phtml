@@ -27,7 +27,7 @@
 	</form>
 	<script type="text/javascript">
 		
-	// função que verifica os erros de validação do formulário
+	// funï¿½ï¿½o que verifica os erros de validaï¿½ï¿½o do formulï¿½rio
 	function verificaErro_cadastro(){
 	
         var erro_cadastro = false;
@@ -41,18 +41,18 @@
     function verifica_cadastro(){
         if(document.getElementById('sexoM').checked || 
             document.getElementById('sexoF').checked){
-            alert('Seus dados do cadastro serão enviados.');
+            alert('Seus dados do cadastro serï¿½o enviados.');
             document.formulario.submit();
 	}
         
         else{
         }
 			
-alert('Você precisa marcar uma das opções para se \n\
+alert('Vocï¿½ precisa marcar uma das opï¿½ï¿½es para se \n\
 cadastrar (Masculino ou Feminino).');
 			
                     }
-		}
+	
 	if(!erro_cadastro){
 	// verificar limite de caracteres da senha
 	if(document.getElementById('senha_C').value.length < 8){
@@ -63,15 +63,15 @@ cadastrar (Masculino ou Feminino).');
 			}
 			
         if(!erro_cadastro){
-        // verificar se a senha e a confirmação da senha sao iguais
+        // verificar se a senha e a confirmaï¿½ï¿½o da senha sao iguais
         if(document.getElementById('senha_C').value 
         != document.getElementById('confirma_C').value){
-	alert('A confirmação da senha do cadastro difere da senha informada!');
+	alert('A confirmaï¿½ï¿½o da senha do cadastro difere da senha informada!');
 	document.getElementById('senha_C').focus();
 	erro_cadastro = true;
 				 }
 			}
-// retorna verdadeiro caso tenha ocorrido algum erro de validação dos compos
+// retorna verdadeiro caso tenha ocorrido algum erro de validaï¿½ï¿½o dos compos
 return erro_cadastro;
 		}
 		

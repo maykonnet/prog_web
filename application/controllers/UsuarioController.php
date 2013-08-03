@@ -15,7 +15,6 @@ class UsuarioController extends Zend_Controller_Action
 			$this->_helper->redirector('cadastro','usuario');
 		}elseif($SessionNamespace->usuario_perfil == "A"){
 			$this->_helper->redirector('index','usuario');
-		}else{
 			$this->_helper->redirector('visualizar','usuario');
 		}
 		 
