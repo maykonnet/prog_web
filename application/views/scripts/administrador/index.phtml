@@ -1,0 +1,41 @@
+<div id="content" class="clearfix">
+	<a href="<?php echo $this->url(array('controller'=>'usuario','action'=>'cadastro')); ?>">Novo Cadastro</a>
+	<br><br>
+			
+	<table>
+		<tr>
+			<td width="20px"><strong>ID</strong></td>
+			<td width="150px"><strong>Nome</strong></td>
+			<td width="70px"><strong>Sexo</strong></td>
+			<td width="70px"><strong>Login</strong></td>
+			<td width="50px"><strong>Editar</strong></td>
+			<td width="50px"><strong>Remover</strong></td>
+		</tr>
+	<?php 
+		foreach($this->usuarios as $usuario){
+	?>
+		<tr>
+			<td><?php echo $usuario['usuario_id']?></td>
+			<td>
+				<a href="<?php echo $this->url(array('controller'=>'usuario','action'=>'visualizar','id'=>$usuario['usuario_id']));?>"><?php echo $usuario['usuario_nome']?></a>
+			</td>
+			<td>
+				<?php 
+				if($usuario['usuario_sexo'] == "F"){
+					echo "Feminino";
+				}else{
+					echo "Masculino";
+				}
+				?>
+			</td>				
+			<td><?php echo $usuario['usuario_login']?></td>
+	<!-- <img src="<?php //echo $this->baseUrl(); ?>/public/img/edit.png" border=0> -->
+               
+			<td><a href="<?php echo $this->url(array('controller'=>'usuario','action'=>'editar','id'=>$usuario['usuario_id']));?>">Editar</a></td>
+			<td><a href="<?php echo $this->url(array('controller'=>'usuario','action'=>'remover','id'=>$usuario['usuario_id']));?>">Remover</a></td>
+		</tr>
+
+		<?php }	?>
+
+	</table>
+</div>

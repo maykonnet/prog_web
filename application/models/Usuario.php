@@ -81,7 +81,9 @@ class Application_Model_Usuario
 				'usuario_nome' => $dados_banco['usuario_nome'],
 				'usuario_sexo' => $dados_banco['usuario_sexo'],
 				'usuario_login' => $dados_banco['usuario_login'],
-				'usuario_senha' => $dados_banco['usuario_senha']);
+				'usuario_senha' => $dados_banco['usuario_senha'],
+				'usuario_perfil' => $dados_banco['usuario_perfil']
+		);
 	
 		return $dados;
 	}
