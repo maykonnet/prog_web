@@ -1,0 +1,38 @@
+<div id="content" class="clearfix">
+	<?php 
+			if($this->usuario_perfil == "C"){
+	?>
+	<a href="<?php echo $this->url(array('controller'=>'usuario','action'=>'editar','id'=>$this->usuario_id));?>">Editar</a>
+	<?php 	}
+	?>
+	<dl>
+		Nome:
+		<dd><?php echo $this->usuario_nome;?></dd>
+	</dl>
+	<dl>
+		Sexo:
+		<dd><?php 
+				if($this->usuario_sexo == "F"){
+					echo "Feminino";
+				}else{
+					echo "Masculino";
+				}
+			?>
+		</dd>
+	</dl>
+	<dl>
+		Login:
+		<dd><?php echo $this->usuario_login;?></dd>
+	</dl>
+	<dl>
+		Perfil:
+		<dd><?php 
+				if($this->usuario_perfil == "A"){
+					echo "Usuário Administrador";
+				}else{
+					echo "Usuário Comum";
+				}
+			?>
+		</dd>
+	</dl>
+</div>
