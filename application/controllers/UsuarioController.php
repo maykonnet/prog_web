@@ -11,10 +11,9 @@ class UsuarioController extends Zend_Controller_Action
     public function indexAction()
     {		
 		$SessionNamespace = new Zend_Session_Namespace('Usuario');
+		
 		if(empty($SessionNamespace->usuario_id)){
 			$this->_helper->redirector('cadastro','usuario');
-		}elseif($SessionNamespace->usuario_perfil == "A"){
-			$this->_helper->redirector('index','usuario');
 		}else{
 			$this->_helper->redirector('visualizar','usuario');
 		}
@@ -24,7 +23,7 @@ class UsuarioController extends Zend_Controller_Action
     }
 
     public function loginAction()
-    {
+    {				
 		$request = $this->getRequest();
 		$model_usuario = new Application_Model_Usuario();
 
@@ -35,17 +34,27 @@ class UsuarioController extends Zend_Controller_Action
 				try {
 					$usuario_dados = $model_usuario->login($formDados);
 					$SessionNamespace = new Zend_Session_Namespace('Usuario');
+					
 					$SessionNamespace->usuario_id = $usuario_dados['usuario_id'];
 					$SessionNamespace->usuario_nome = $usuario_dados['usuario_nome'];
 					$SessionNamespace->usuario_sexo = $usuario_dados['usuario_sexo'];
 					$SessionNamespace->usuario_login = $usuario_dados['usuario_login'];
 					$SessionNamespace->usuario_perfil = $usuario_dados['usuario_perfil'];
 
-					$this->_helper->redirector('index','usuario');
+					$this->_helper->redirector('index','index'); // action index, controller usuario
 					
 				} catch (Exception $ex) {
 					$this->view->erro = $ex->getMessage();
 				}
+			}
+		}else{
+
+			$SessionNamespace = new Zend_Session_Namespace('Usuario');
+			
+			if(empty($SessionNamespace->usuario_id)){
+				$this->_helper->redirector('cadastro','usuario');
+			}else{
+				$this->_helper->redirector('visualizar','usuario');
 			}
 		}
     }
@@ -68,10 +77,7 @@ class UsuarioController extends Zend_Controller_Action
 		 
 		if ($request->isPost()) {
 			$formDados = $request->getPost();
-			echo '<pre>';
-			print_r($formDados);
 			if ($formDados) {
-				$resultado = false;
 				try {
 					$usuario_id = $model_usuario->inserirUsuario($formDados);
 				} catch (Exception $ex) {
