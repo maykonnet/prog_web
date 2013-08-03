@@ -1,10 +1,7 @@
 <div id="content" class="clearfix">
-	<?php 
-			if($this->usuario_perfil == "C"){
-	?>
+	
 	<a href="<?php echo $this->url(array('controller'=>'usuario','action'=>'editar','id'=>$this->usuario_id));?>">Editar</a>
-	<?php 	}
-	?>
+	
 	<dl>
 		Nome:
 		<dd><?php echo $this->usuario_nome;?></dd>
@@ -28,9 +25,9 @@
 		Perfil:
 		<dd><?php 
 				if($this->usuario_perfil == "A"){
-					echo "Usuário Administrador";
+					echo "Usuï¿½rio Administrador";
 				}else{
-					echo "Usuário Comum";
+					echo "Usuï¿½rio Comum";
 				}
 			?>
 		</dd>

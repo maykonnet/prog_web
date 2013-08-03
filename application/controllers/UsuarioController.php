@@ -128,7 +128,7 @@ class UsuarioController extends Zend_Controller_Action
 
 		try {
 			$model_usuario->excluirUsuario($usuario_id);
-			$this->_helper->redirector('index','usuario');
+			$this->_helper->redirector('index','administrador');
 		} catch (Exception $ex) {
 			$this->view->erro = $ex->getMessage();
 		}

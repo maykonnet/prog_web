@@ -199,7 +199,6 @@ div.inner {
 }
 
 /* Tipografia*/
-a { text-decoration: none; color: #666;}
 
 a:hover {
 	cursor: pointer; 
