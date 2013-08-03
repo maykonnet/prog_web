@@ -107,10 +107,6 @@ h1#logo a {
 	font-weight: bold;
 }
 
-#mainnav ul li a#active span {
-	color: #cc9900;
-	font-weight: bold;
-}
 
 #container-wrap {
 	background: #a8a975 url(../images/bg_rp.gif) left top repeat-x;
@@ -199,6 +195,10 @@ div.inner {
 }
 
 /* Tipografia*/
+<<<<<<< HEAD
+=======
+
+>>>>>>> bc4ed5b176d3d8c5153a418895bd3998a8aeb232
 
 a:hover {
 	cursor: pointer; 

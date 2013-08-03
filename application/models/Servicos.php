@@ -2,7 +2,8 @@
 
 class Application_Model_Servicos
 {
-public function inserirServico($dados)
+
+    public function inserirServico($dados)
 	{
 		$_db_servico = new Application_Model_Servicos();
 		
@@ -11,6 +12,12 @@ public function inserirServico($dados)
 		
 		$_db_servico->insert($dados_banco);
 	}
+        
+public function editarServico($dados){
+    
+    
+    
+}
 
 }
 

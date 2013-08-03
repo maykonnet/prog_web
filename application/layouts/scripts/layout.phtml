@@ -108,11 +108,11 @@ img {
 			<div id="mainnav" class="pagesize clearfix">
 				<div class="vernav">
 					<ul class="clearfix">
-						<li><a href="<?php echo $this->url(array('controller'=>'index','action'=>'index'));?>" id="active"><span>Inicio</span> </a></li>
-						<li><a href="<?php echo $this->url(array('controller'=>'servicos','action'=>'index'));?>"><span>Servi�os</span> </a></li>
-						<li><a href="<?php echo $this->url(array('controller'=>'clientes','action'=>'index'));?>"><span>Clientes </span> </a></li>
-						<li><a href="<?php echo $this->url(array('controller'=>'contato','action'=>'index'));?>"><span>Contato</span> </a></li>
-						<li><a href="<?php echo $this->url(array('controller'=>'usuario','action'=>'login'));?>"><span>
+						<li><a href="<?php echo $this->url(array('controller'=>'index','action'=>'index'));?>" style="color:#cc990" id="home" onclick="mudarAtivo(this.id)"><span>Inicio</span> </a></li>
+						<li><a href="<?php echo $this->url(array('controller'=>'servicos','action'=>'index'));?>" id="servicosmenu" onclick="mudarAtivo(this.id)"><span>Servi�os</span> </a></li>
+						<li><a href="<?php echo $this->url(array('controller'=>'clientes','action'=>'index'));?>" id="clientesmenu" onclick="mudarAtivo(this.id)"><span>Clientes </span> </a></li>
+						<li><a href="<?php echo $this->url(array('controller'=>'contato','action'=>'index'));?>" id="contatomenu" onclick="mudarAtivo(this.id)"><span>Contato</span> </a></li>
+						<li><a href="<?php echo $this->url(array('controller'=>'usuario','action'=>'login'));?>" id="usuariomenu" onclick="mudarAtivo(this.id)"><span>
 
 						<?php 
 							if(empty($SessionNamespace->usuario_id)){ ?>
@@ -126,7 +126,7 @@ img {
 						</li>
 						<?php 
 						if($SessionNamespace->usuario_perfil == "A"){ ?>
-						<li><a href="<?php echo $this->url(array('controller'=>'administrador','action'=>'index'));?>"><span>Administrador</span> </a></li>
+						<li><a href="<?php echo $this->url(array('controller'=>'administrador','action'=>'index'));?>" id="administradormenu" onclick="mudarAtivo(this.id)"><span>Administrador</span> </a></li>
 						
 						<?php }?>
 					</ul>
