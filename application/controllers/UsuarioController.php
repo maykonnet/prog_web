@@ -149,8 +149,6 @@ class UsuarioController extends Zend_Controller_Action
 		$this->view->usuario_login = $dados_usuario['usuario_login'];
 		$this->view->usuario_perfil = $dados_usuario['usuario_perfil'];
     }
-
-
 }
 
 
