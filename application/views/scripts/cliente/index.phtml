@@ -13,27 +13,27 @@ document.getElementById('usuariomenu').style.font.weight = 'bold';
                     <td width="50px"><strong>Remover</strong></td>
             </tr>
     <?php 
-            foreach($this->clientes as $cliente){
+            foreach($this->cliente as $cliente){
     ?>
             <tr>
-                    <td><?php echo $cliente['cliente_id']?></td>
+                    <td><?php echo $cliente['Cliente_id']?></td>
                     <td>
-                            <a href="<?php echo $this->url(array('controller'=>'cliente','action'=>'visualizar','id'=>$cliente['$cliente_id']));?>"><?php echo $cliente['cliente_nome']?></a>
+                            <?php echo $cliente['Cliente_nome']?>
                     </td>
                     <td>
                             <?php 
-                            if($cliente['cliente_sexo'] == 0){
+                            if($cliente['Cliente_Sexo'] == 'F'){
                                     echo "Feminino";
                             }else{
                                     echo "Masculino";
                             }
                             ?>
                     </td>				
-                    <td><?php echo $cliente['cliente_email']?></td>
+                    <td><?php echo $cliente['Cliente_Email']?></td>
     <!-- <img src="<?php //echo $this->baseUrl(); ?>/public/img/edit.png" border=0> -->
 
-                    <td><a href="<?php echo $this->url(array('controller'=>'cliente','action'=>'editar','id'=>$cliente['cliente_id']));?>">Editar</a></td>
-                    <td><a href="<?php echo $this->url(array('controller'=>'cliente','action'=>'remover','id'=>$cliente['cliente_id']));?>">Remover</a></td>
+                    <td><a href="<?php echo $this->url(array('controller'=>'cliente','action'=>'editar','id'=>$cliente['Cliente_id']));?>">Editar</a></td>
+                    <td><a href="<?php echo $this->url(array('controller'=>'cliente','action'=>'remover','id'=>$cliente['Cliente_id']));?>">Remover</a></td>
             </tr>
 
             <?php }	?>

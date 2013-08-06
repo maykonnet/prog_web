@@ -110,8 +110,8 @@ class UsuarioController extends Zend_Controller_Action
 
 			$dados_usuario = $model_usuario->getDadosUsuario($usuario_id);
 			$this->view->usuario_id = $usuario_id;
-			$this->view->usuario_nome = $dados_usuario['usuario_nome'];
-			$this->view->usuario_sexo = $dados_usuario['usuario_sexo'];
+			$this->view->usuario_nome  = $dados_usuario['usuario_nome'];
+			$this->view->usuario_sexo  = $dados_usuario['usuario_sexo'];
 			$this->view->usuario_login = $dados_usuario['usuario_login'];
 			$this->view->usuario_senha = $dados_usuario['usuario_senha'];
 		}
