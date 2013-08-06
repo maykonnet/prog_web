@@ -3,21 +3,20 @@ document.getElementById('usuariomenu').style.color = '#cc9900';
 document.getElementById('usuariomenu').style.font.weight = 'bold';
 </script>
 <div id="content" class="clearfix">
-	<form name="formulario" method="post" action="usuario/cadastro" id="formulario">
+	<form name="formulario" method="post" action="usuario/cadastro"
+		id="formulario">
 		Nome: <input type="text" name="nome" id="Nnome" value="" /></br> </br>
-		Sexo: 
-		<label>
-			<input type="radio" name="sexo" id="sexoM" value="M" />
+		Sexo: <label> <input type="radio" name="sexo" id="sexoM" value="M" />
 			Masculino
-		</label>
-		<label> 
-			<input type="radio" name="sexo" id="sexoF" value="F" />
+		</label> <label> <input type="radio" name="sexo" id="sexoF" value="F" />
 			Feminino
-		</label></br> <br /> 
-		Login: <input type="text" name="login_C" id="login_C" value="" /> * informe um login possuindo de 5 a 15 caracteres<br /> <br />
-	    Senha: <input type="password" name="senha_C" id="senha_C" value=""  /> * a senha deve conter, no minimo, 8 caracteres <br /> <br />
-	    Confirme a senha: <input type="password" name="confirma_C" id="confirma_C" value="" /><br /><br /> 
-	    <input type="submit" value="Cadastrar" onclick="verificaErro_cadastro();" />
+		</label></br> <br /> Login: <input type="text" name="login_C"
+			id="login_C" value="" /> * informe um login possuindo de 5 a 15
+		caracteres<br /> <br /> Senha: <input type="password" name="senha_C"
+			id="senha_C" value="" /> * a senha deve conter, no minimo, 8
+		caracteres <br /> <br /> Confirme a senha: <input type="password"
+			name="confirma_C" id="confirma_C" value="" /><br /> <br /> <input
+			type="submit" value="Cadastrar" />
 	</form>
 	<script type="text/javascript">
 		
@@ -32,20 +31,6 @@ document.getElementById('usuariomenu').style.font.weight = 'bold';
            document.getElementById('login_C').focus();
            erro_cadastro = true;
 			}
-    function verifica_cadastro(){
-        if(document.getElementById('sexoM').checked || 
-            document.getElementById('sexoF').checked){
-            alert('Seus dados do cadastro serï¿½o enviados.');
-            document.formulario.submit();
-	}
-        
-        else{
-        }
-			
-alert('Vocï¿½ precisa marcar uma das opï¿½ï¿½es para se \n\
-cadastrar (Masculino ou Feminino).');
-			
-                    }
 	
 	if(!erro_cadastro){
 	// verificar limite de caracteres da senha
@@ -68,6 +53,21 @@ cadastrar (Masculino ou Feminino).');
 // retorna verdadeiro caso tenha ocorrido algum erro de validaï¿½ï¿½o dos compos
 return erro_cadastro;
 		}
+	
+    function verifica_cadastro(){
+        if(document.getElementById('sexoM').checked || 
+            document.getElementById('sexoF').checked){
+            alert('Seus dados do cadastro serão enviados.');
+            document.formulario.submit();
+		}
+        
+        else{
+        }
+			
+alert('Vocï¿½ precisa marcar uma das opï¿½ï¿½es para se \n\
+cadastrar (Masculino ou Feminino).');
+			
+                    }
 		
 		
 	</script>
