@@ -277,5 +277,8 @@ width: 90%; bottom:0px; left: 0px; position: absolute; height: 30px;
 	background: none;
 }
 
+.table_nome{
+    text-align: right;
+}
 
 

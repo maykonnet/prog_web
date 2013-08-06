@@ -1,0 +1,43 @@
+<script type="text/javascript">
+document.getElementById('usuariomenu').style.color = '#cc9900'; 
+document.getElementById('usuariomenu').style.font.weight = 'bold';
+</script>
+<div id="content" class="clearfix">
+    <table>
+            <tr>
+                    <td width="20px"><strong>ID</strong></td>
+                    <td width="150px"><strong>Nome</strong></td>
+                    <td width="70px"><strong>Sexo</strong></td>
+                    <td width="70px"><strong>Email</strong></td>
+                    <td width="50px"><strong>Editar</strong></td>
+                    <td width="50px"><strong>Remover</strong></td>
+            </tr>
+    <?php 
+            foreach($this->clientes as $cliente){
+    ?>
+            <tr>
+                    <td><?php echo $cliente['cliente_id']?></td>
+                    <td>
+                            <a href="<?php echo $this->url(array('controller'=>'cliente','action'=>'visualizar','id'=>$cliente['$cliente_id']));?>"><?php echo $cliente['cliente_nome']?></a>
+                    </td>
+                    <td>
+                            <?php 
+                            if($cliente['cliente_sexo'] == 0){
+                                    echo "Feminino";
+                            }else{
+                                    echo "Masculino";
+                            }
+                            ?>
+                    </td>				
+                    <td><?php echo $cliente['cliente_email']?></td>
+    <!-- <img src="<?php //echo $this->baseUrl(); ?>/public/img/edit.png" border=0> -->
+
+                    <td><a href="<?php echo $this->url(array('controller'=>'cliente','action'=>'editar','id'=>$cliente['cliente_id']));?>">Editar</a></td>
+                    <td><a href="<?php echo $this->url(array('controller'=>'cliente','action'=>'remover','id'=>$cliente['cliente_id']));?>">Remover</a></td>
+            </tr>
+
+            <?php }	?>
+
+    </table>
+</div>
+

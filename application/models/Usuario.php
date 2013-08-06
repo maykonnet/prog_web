@@ -40,10 +40,10 @@ class Application_Model_Usuario
 		$dados_banco = $_db_usuario->fetchRow('usuario_id ='.$usuario_id);
 		
 		$dados = array(		'usuario_id' => $dados_banco['usuario_id'],
-							'usuario_nome' => $dados_banco['usuario_nome'],
-							'usuario_sexo' => $dados_banco['usuario_sexo'],
-							'usuario_login' => $dados_banco['usuario_login'],
-							'usuario_senha' => $dados_banco['usuario_senha'],
+							'usuario_nome'   => $dados_banco['usuario_nome'],
+							'usuario_sexo'   => $dados_banco['usuario_sexo'],
+							'usuario_login'  => $dados_banco['usuario_login'],
+							'usuario_senha'  => $dados_banco['usuario_senha'],
 							'usuario_perfil' => $dados_banco['usuario_perfil']
 		);
 		

@@ -1,0 +1,140 @@
+<script type="text/javascript">
+    document.getElementById('clientesmenu').style.color = '#cc9900'; 
+    document.getElementById('clientesmenu').style.font.weight = 'bold';
+    
+    function cep(cep){
+        var a = "<?php echo cep;?>";
+        alert(a);
+    }
+</script>
+
+<?php
+    function busca_cep($cep){  
+        $resultado = @file_get_contents('http://republicavirtual.com.br/web_cep.php?cep='.urlencode($cep).'&formato=query_string');  
+        if(!$resultado){  
+            $resultado = "&resultado=0&resultado_txt=erro+ao+buscar+cep";  
+        }  
+        parse_str($resultado, $retorno);   
+        return $retorno;  
+    } 
+    function procura($cep)
+    {
+        echo '<pre>'; print_r($cep);
+        exit; 
+        $resultado_busca = busca_cep($cep);  
+        echo "<pre> Array Retornada: ".print_r($resultado_busca, true)."</pre>";  
+  
+        switch($resultado_busca['resultado']){  
+            case '2':  
+                $texto = " 
+                Cidade com logradouro único 
+                <b>Cidade: </b> ".$resultado_busca['cidade']." 
+                <b>UF: </b> ".$resultado_busca['uf']." 
+                ";    
+                break;  
+      
+            case '1':  
+                $texto = " 
+                Cidade com logradouro completo 
+                <b>Tipo de Logradouro: </b> ".$resultado_busca['tipo_logradouro']." 
+                <b>Logradouro: </b> ".$resultado_busca['logradouro']." 
+                <b>Bairro: </b> ".$resultado_busca['bairro']." 
+                <b>Cidade: </b> ".$resultado_busca['cidade']." 
+                <b>UF: </b> ".$resultado_busca['uf']." 
+                ";  
+            break;  
+
+            default:  
+                $texto = "Fala ao buscar cep: ".$resultado_busca['resultado'];  
+            break;  
+        }  
+     echo $texto;  
+    }
+ ?>  
+
+<div id="content" class="clearfix">
+    <form name="formulario" method="post" action="<?php echo $this->url(array('controller'=>'cliente','action'=>'cadastro'));?>" id="formulario">
+        <table align="center" border="0" cellspacing="0" cellpadding="0" >
+            <tbody>
+                <tr>
+                    <td class="table_nome">
+                        Nome :
+                    </td>
+                    <td>
+                       <input type="text" name="cli_nome" id="c_nome" value="" size="40" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table_nome">
+                        Email : 
+                    </td>
+                    <td>
+                        <input type="text" name="cli_email" id="c_email" value=" " size="40" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table_nome">
+                        CPF : 
+                    </td>
+                    <td>
+                        <input type="label" name="cli_cpf" id="c_cpf" value="" size="40" />
+                    </td>                  
+                </tr>
+                <tr>
+                    <td class="table_nome">
+                        Sexo:                      
+                    </td>
+                    <td>
+                        <label>
+                            <input type="radio" name="sexo" id="c_sexo" value="M" />
+                            Masculino
+                        </label>
+                        <label> 
+			<input  type="radio" name="sexo" id="c_sexoF" value="F" />
+                            Feminino
+                        </label>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table_nome">
+                        CEP: 
+                    </td>
+                    <td>
+                        <input type="text" name="cli_cep" id="c_cep" value="" onblur="cep(this.value);" size="10" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="table_nome">
+                        Estado: 
+                    </td>
+                    <td>
+                       <input type="text" name="cli_estado" id="c_estado" value="" size="20"  />     
+                    </td>    
+                </tr>   
+                <tr>
+                    <td class="table_nome">
+                        Cidade: 
+                    </td>
+                    <td>
+                       <input type="text" name="cli_cidade" id="c_cidade" value="" size="20"  />    
+                    </td>    
+                </tr>  
+                <tr>
+                    <td class="table_nome">
+                        Endereço: 
+                    </td>
+                    <td>
+                       <input type="text" name="cli_endereco" id="c_endereco" value="" size="40"   />   
+                    </td>    
+                </tr>
+                <tr>
+                    <td class="table_nome">
+                    </td>
+                    <td>
+                        <input type="submit" value="Cadastrar" />  
+                    </td>    
+                </tr>
+            </tbody> 
+        </table>
+    </form> 
+</div>
