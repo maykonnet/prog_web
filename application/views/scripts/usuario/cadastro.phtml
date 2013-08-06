@@ -3,8 +3,8 @@
     document.getElementById('usuariomenu').style.font.weight = 'bold';
 </script>
 <div id="content" class="clearfix">
-	<form name="formulario" method="post" action="usuario/cadastro"
-		id="formulario">
+	<form name="formulariocadastro" method="post" action="<?php echo $this->url(array('controller'=>'usuario','action'=>'cadastro'));?>"
+		id="formulariocadastro">
 		Nome: <input type="text" name="nome" id="Nnome" value="" /></br> </br>
 		Sexo: <label> <input type="radio" name="sexo" id="sexoM" value="M" />
 			Masculino
@@ -16,7 +16,7 @@
 			id="senha_C" value="" /> * a senha deve conter, no minimo, 8
 		caracteres <br /> <br /> Confirme a senha: <input type="password"
 			name="confirma_C" id="confirma_C" value="" /><br /> <br /> <input
-			type="submit" value="Cadastrar" />
+			type="button" value="Cadastrar" onclick="verificaErro_cadastro()" />
 	</form>
 	<script type="text/javascript">
 		
@@ -25,49 +25,51 @@
 	
         var erro_cadastro = false;
 	// verificar limites de caracteres do login
-	if(document.getElementById('login_C').value.length < 5 || 
-           document.getElementById('login_C').value.length > 15){
-           alert('O login do cadastro foi informado incorretamente!');
-           document.getElementById('login_C').focus();
+		if(document.getElementById('Nnome').value.length < 2){
+           alert('O nome do cadastro foi informado incorretamente!');
+           document.getElementById('Nnome').focus();
            erro_cadastro = true;
+		}
+
+		if(!erro_cadastro){
+			if(document.getElementById('login_C').value.length < 5 || document.getElementById('login_C').value.length > 15){
+	           alert('O login do cadastro foi informado incorretamente!');
+	           document.getElementById('login_C').focus();
+	           erro_cadastro = true;
 			}
-	
-	if(!erro_cadastro){
-	// verificar limite de caracteres da senha
-	if(document.getElementById('senha_C').value.length < 8){
-	alert('A senha do cadastro foi informado incorretamente!');
-	document.getElementById('senha_C').focus();
-	erro_cadastro = true;
-				 }
+		}
+		
+		if(!erro_cadastro){
+			// verificar limite de caracteres da senha
+			if(document.getElementById('senha_C').value.length < 6){
+				alert('A senha do cadastro foi informado incorretamente!');
+				document.getElementById('senha_C').focus();
+				erro_cadastro = true;
 			}
+		}
 			
         if(!erro_cadastro){
         // verificar se a senha e a confirmaï¿½ï¿½o da senha sao iguais
-        if(document.getElementById('senha_C').value 
-        != document.getElementById('confirma_C').value){
-	alert('A confirmaï¿½ï¿½o da senha do cadastro difere da senha informada!');
-	document.getElementById('senha_C').focus();
-	erro_cadastro = true;
-				 }
+       		if(document.getElementById('senha_C').value != document.getElementById('confirma_C').value){
+				alert('A confirmação da senha do cadastro difere da senha informada!');
+				document.getElementById('senha_C').focus();
+				erro_cadastro = true;
 			}
+		}
 // retorna verdadeiro caso tenha ocorrido algum erro de validaï¿½ï¿½o dos compos
-return erro_cadastro;
-		}
-	
-    function verifica_cadastro(){
-        if(document.getElementById('sexoM').checked || 
-            document.getElementById('sexoF').checked){
-            alert('Seus dados do cadastro serão enviados.');
-            document.formulario.submit();
-		}
-        
-        else{
+        if(!erro_cadastro){
+            if(document.getElementById('sexoM').checked || document.getElementById('sexoF').checked){
+                alert('Seus dados do cadastro serão enviados.');
+                document.formulariocadastro.submit();
+    		}else{
+        		alert('Você precisa marcar uma das opções para se \n\ cadastrar (Masculino ou Feminino).');	
+    			return erro_cadastro;
+            }
+    			
+        }else{
+			return erro_cadastro;
         }
-			
-alert('Vocï¿½ precisa marcar uma das opï¿½ï¿½es para se \n\
-cadastrar (Masculino ou Feminino).');
-			
-                    }
+	}
 		
 		
 	</script>

@@ -1,56 +1,31 @@
+
 <script type="text/javascript">
     document.getElementById('clientesmenu').style.color = '#cc9900'; 
     document.getElementById('clientesmenu').style.font.weight = 'bold';
     
-    function cep(cep){
-        var a = "<?php echo cep;?>";
-        alert(a);
+    function cep(cep2, urlbase){
+    	$.ajax({
+  		  	  url: 'http://localhost/prog_web/public/cliente.ajax.php',
+    		  type: 'POST',
+    		  data: { cep:cep2},
+    		  success:function(Req) {
+        		  var array = Req.split('-');
+        		  if(array[0] == 0){
+        			  $("#cep_invalido").show();
+	        		  $("#c_estado").val('');
+	        		  $("#c_cidade").val('');
+	        		  $("#c_endereco").val('');
+        		  }else{
+	        		  $("#c_estado").val(array[5]);
+	        		  $("#c_cidade").val(array[4]);
+	        		  $("#c_endereco").val(array[3]+' '+array[1]+' '+array[2]);
+        			  $("#cep_invalido").hide();
+        		  }
+        		  
+    		  },
+		  });
     }
 </script>
-
-<?php
-    function busca_cep($cep){  
-        $resultado = @file_get_contents('http://republicavirtual.com.br/web_cep.php?cep='.urlencode($cep).'&formato=query_string');  
-        if(!$resultado){  
-            $resultado = "&resultado=0&resultado_txt=erro+ao+buscar+cep";  
-        }  
-        parse_str($resultado, $retorno);   
-        return $retorno;  
-    } 
-    function procura($cep)
-    {
-        echo '<pre>'; print_r($cep);
-        exit; 
-        $resultado_busca = busca_cep($cep);  
-        echo "<pre> Array Retornada: ".print_r($resultado_busca, true)."</pre>";  
-  
-        switch($resultado_busca['resultado']){  
-            case '2':  
-                $texto = " 
-                Cidade com logradouro único 
-                <b>Cidade: </b> ".$resultado_busca['cidade']." 
-                <b>UF: </b> ".$resultado_busca['uf']." 
-                ";    
-                break;  
-      
-            case '1':  
-                $texto = " 
-                Cidade com logradouro completo 
-                <b>Tipo de Logradouro: </b> ".$resultado_busca['tipo_logradouro']." 
-                <b>Logradouro: </b> ".$resultado_busca['logradouro']." 
-                <b>Bairro: </b> ".$resultado_busca['bairro']." 
-                <b>Cidade: </b> ".$resultado_busca['cidade']." 
-                <b>UF: </b> ".$resultado_busca['uf']." 
-                ";  
-            break;  
-
-            default:  
-                $texto = "Fala ao buscar cep: ".$resultado_busca['resultado'];  
-            break;  
-        }  
-     echo $texto;  
-    }
- ?>  
 
 <div id="content" class="clearfix">
     <form name="formulario" method="post" action="<?php echo $this->url(array('controller'=>'cliente','action'=>'cadastro'));?>" id="formulario">
@@ -100,7 +75,8 @@
                         CEP: 
                     </td>
                     <td>
-                        <input type="text" name="cli_cep" id="c_cep" value="" onblur="cep(this.value);" size="10" />
+                        <input type="text" name="cli_cep" id="c_cep" value="" onblur="cep(this.value, '<?php echo $this->baseUrl(); ?>');" size="10" />
+                    	<div id="cep_invalido" name="cep_invalido" style="display: none;">CEP Inv�lido!</div>
                     </td>
                 </tr>
                 <tr>
@@ -124,7 +100,7 @@
                         Endereço: 
                     </td>
                     <td>
-                       <input type="text" name="cli_endereco" id="c_endereco" value="" size="40"   />   
+                       <input type="text" name="cli_endereco" id="c_endereco" value="" size="60"   />   
                     </td>    
                 </tr>
                 <tr>
