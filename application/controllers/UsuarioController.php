@@ -82,7 +82,7 @@ class UsuarioController extends Zend_Controller_Action
 					$this->view->erro = $ex->getMessage();
 				}
 				 
-				$this->_helper->redirector('index','usuario');
+				$this->_helper->redirector('index','index');
 			}
 		}
     }

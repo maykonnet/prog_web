@@ -20,9 +20,6 @@ class ClienteController extends Zend_Controller_Action
         $model_cliente = new Application_Model_Cliente();
         if ($request->isPost()) {
                 $formCliente = $request->getPost();
-                echo $request->getPost();
- //               echo '<pre>'; print_r($formCliente);
-//                exit;                
                 if ($formCliente) {
                         try {
                             $cliente_id = $model_cliente->inserirCliente($formCliente);
