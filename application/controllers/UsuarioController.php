@@ -26,7 +26,6 @@ class UsuarioController extends Zend_Controller_Action
     {				
 		$request = $this->getRequest();
 		$model_usuario = new Application_Model_Usuario();
-
 		if ($request->isPost()) {
 			$formDados = $request->getPost();
 			if ($formDados) {
@@ -73,8 +72,7 @@ class UsuarioController extends Zend_Controller_Action
     public function cadastroAction()
     {		
 		$request = $this->getRequest();
-		$model_usuario = new Application_Model_Usuario();
-		 
+		$model_usuario = new Application_Model_Usuario(); 
 		if ($request->isPost()) {
 			$formDados = $request->getPost();
 			if ($formDados) {
@@ -84,7 +82,7 @@ class UsuarioController extends Zend_Controller_Action
 					$this->view->erro = $ex->getMessage();
 				}
 				 
-				$this->_helper->redirector('index','usuario');
+				$this->_helper->redirector('index','index');
 			}
 		}
     }
